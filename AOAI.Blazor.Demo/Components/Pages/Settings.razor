@@ -1,0 +1,41 @@
+﻿@page "/settings"
+@rendermode InteractiveServer
+@inject ILocalStorageService LocalStorage
+
+<h2>Settings</h2>
+
+<h3>Set Function of AI Assistant</h3>
+<div class="form-group">
+    <label for="WhatAmI">What Am I?</label>
+    <input class="form-control" type="text" @bind="this.whatAmI" id="WhatAmI" @bind:event="oninput" @onkeydown="this.EnterCheckWhatAmI" />
+    <button class="btn btn-primary" @onclick="this.SetWhatAmI" disabled=@string.IsNullOrEmpty(this.whatAmI)>Set What Am I</button>
+</div>
+
+
+@code {
+    private string whatAmI = string.Empty;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            this.whatAmI = await this.LocalStorage.GetItemAsync<string>("whatAmI") ?? string.Empty;
+            this.StateHasChanged();
+        }
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    private async Task EnterCheckWhatAmI(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await this.SetWhatAmI();
+        }
+    }
+
+    private async Task SetWhatAmI()
+    {
+        await this.LocalStorage.SetItemAsync("whatAmI", this.whatAmI);
+    }
+}
