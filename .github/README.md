@@ -1,4 +1,4 @@
-# Azure Open AI in Blazor using Microsoft Semantic Kernel in a chatbot UI
+# Azure OpenAI in Blazor using Microsoft Semantic Kernel in a chatbot UI
 
 ## Set up
 
@@ -23,4 +23,4 @@ Alternatively, you can just edit the `appconfig.json` files with those values. J
 
 Once you run the web app in your browser, navigate to the **Settings** page and set the "*What Am I*" field then click the "*Set What Am I*" button. This will serve as the system message. It will store this value in your localstorage so you don't have to keep setting this value every time you run the application. You can change this later by navigating back to this page.
 
-The chatbot component is set to always be visible in any page. If you don't see the chat icon in the lower part of the page right away just refresh the page. As soon as you open the chat popup, you'll be greeted and can now chat with Azure Open AI. Press enter at end of prompt, or click the send icon.
+The chatbot component is set to always be visible in any page. If you don't see the chat icon in the lower part of the page right away just refresh the page. As soon as you open the chat popup, you'll be greeted and can now chat with Azure OpenAI. Press enter at end of prompt, or click the send icon.
