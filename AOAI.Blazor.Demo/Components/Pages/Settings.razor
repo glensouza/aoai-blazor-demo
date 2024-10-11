@@ -8,7 +8,7 @@
 <div class="form-group">
     <label for="WhatAmI">What Am I?</label>
     <input class="form-control" type="text" @bind="this.whatAmI" id="WhatAmI" @bind:event="oninput" @onkeydown="this.EnterCheckWhatAmI" />
-    <button class="btn btn-primary" @onclick="this.SetWhatAmI" disabled=@string.IsNullOrEmpty(this.whatAmI)>Set What Am I</button>
+    <button class="btn btn-primary" @onclick="this.SetWhatAmI" disabled="@string.IsNullOrEmpty(this.whatAmI)">Set What Am I</button>
 </div>
 
 
